@@ -1,0 +1,607 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f8fafc;
+    color: #1e293b;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+}
+
+.navbar {
+    background-color: #1e293b;
+    color: white;
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #0d9488;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-brand {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-brand span {
+    color: #0d9488;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-link {
+    color: #94a3b8;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    padding: 0.4rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.user-badge {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.logout-btn {
+    background-color: transparent;
+    border: 1px solid #be123c;
+    color: #be123c;
+    padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.logout-btn:hover {
+    background-color: #be123c;
+    color: white;
+}
+
+.main-content {
+    flex: 1;
+    padding: 1.5rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.card {
+    background-color: white;
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #e2e8f0;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #0f172a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: #334155;
+    font-size: 0.85rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: all 0.15s;
+    outline: none;
+    background-color: #f8fafc;
+}
+
+.form-control:focus {
+    border-color: #1e293b;
+    background-color: white;
+    box-shadow: 0 0 0 2px rgba(30, 41, 59, 0.1);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.15s;
+    gap: 6px;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.btn-primary {
+    background-color: #1e293b;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0f172a;
+}
+
+.btn-secondary {
+    background-color: #0d9488;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #0f766e;
+}
+
+.btn-danger {
+    background-color: #be123c;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #9f1239;
+}
+
+.btn-outline {
+    background-color: white;
+    border: 1px solid #cbd5e1;
+    color: #334155;
+}
+
+.btn-outline:hover {
+    background-color: #f1f5f9;
+    border-color: #334155;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 4px;
+    border: 1px solid #e2e8f0;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    background-color: white;
+    font-size: 0.9rem;
+}
+
+.table th {
+    background-color: #f1f5f9;
+    color: #1e293b;
+    padding: 0.75rem 1rem;
+    font-weight: 700;
+    border-bottom: 2px solid #cbd5e1;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: middle;
+}
+
+.table tr:hover {
+    background-color: #f8fafc;
+}
+
+/* LENCANA (BADGES) */
+.badge {
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: inline-block;
+    border: 1px solid transparent;
+}
+
+.badge-success {
+    background-color: #f0fdf4;
+    color: #166534;
+    border-color: #bbf7d0;
+}
+
+.badge-danger {
+    background-color: #fff1f2;
+    color: #9f1239;
+    border-color: #fecdd3;
+}
+
+.badge-warning {
+    background-color: #fffbeb;
+    color: #92400e;
+    border-color: #fef3c7;
+}
+
+/* HALAMAN LOGIN FORMAL & MINIMALIS (CLEAN FLAT DESIGN) */
+.login-body {
+    background-color: #f1f5f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-wrapper {
+    background: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    color: var(--slate-800);
+    text-align: center;
+}
+
+.login-header h1 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.5px;
+}
+
+.login-header p {
+    color: #334155;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+}
+
+.login-wrapper .form-label {
+    color: #334155;
+    text-align: left;
+}
+
+.login-wrapper .form-control {
+    background-color: white;
+    border: 1px solid #cbd5e1;
+    color: #1e293b;
+}
+
+.login-wrapper .form-control:focus {
+    border-color: #1e293b;
+    box-shadow: 0 0 0 2px rgba(30, 41, 59, 0.1);
+}
+
+.login-signature {
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
+    color: #64748b;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 0.75rem;
+}
+
+.login-signature span {
+    color: #1e293b;
+    font-weight: 700;
+}
+
+/* PESAN NOTIFIKASI / ALERTS */
+.alert {
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border: 1px solid transparent;
+}
+
+.alert-danger {
+    background-color: #fff1f2;
+    color: #9f1239;
+    border-color: #fecdd3;
+}
+
+.alert-success {
+    background-color: #f0fdf4;
+    color: #166534;
+    border-color: #bbf7d0;
+}
+
+/* KOTAK RINGKASAN METRIK (DASHBOARD) */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.metric-card {
+    background: white;
+    padding: 1.25rem;
+    border-radius: 4px;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.5px;
+}
+
+.metric-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+/* LAYOUT MULTI-KOLOM UNTUK TRANSAKSI KASIR */
+.kasir-container {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 992px) {
+    .kasir-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =======================================================
+   ATURAN TAMPILAN CUSTOM DROPDOWN PENCARIAN (KASIR UTAMA)
+   ======================================================= */
+.custom-dropdown-container {
+    position: relative;
+    width: 100%;
+}
+
+.custom-dropdown-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-top: none;
+    max-height: 220px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 0 0 4px 4px;
+    display: none;
+}
+
+.custom-dropdown-item {
+    padding: 0.65rem 0.85rem;
+    cursor: pointer;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.85rem;
+    color: #1e293b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.15s;
+}
+
+.custom-dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.custom-dropdown-item:hover {
+    background-color: #f1f5f9;
+}
+
+.custom-dropdown-item .product-stock {
+    font-size: 0.75rem;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.custom-dropdown-item .product-price {
+    font-weight: 700;
+    color: #1e293b;
+}
+
+
+/* =======================================================
+   ATURAN TAMPILAN SPESIFIK NOTA PENJUALAN (MONITOR SCREEN)
+   ======================================================= */
+.nota-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    width: 100%;
+}
+
+
+/* =======================================================
+   ATURAN KHUSUS CETAK NOTA KASIR (PRINT MODE 1 HALAMAN)
+   ======================================================= */
+@page {
+    size: auto;
+    margin: 5mm;
+    /* Mengikis margin kertas default agar bersih */
+}
+
+@media print {
+
+    /* Sembunyikan semua elemen layout sistem */
+    .navbar,
+    footer,
+    .btn-print-container,
+    .alert {
+        display: none !important;
+    }
+
+    /* Reset total body dan html */
+    html,
+    body {
+        background-color: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        height: auto !important;
+        min-height: 0 !important;
+    }
+
+    /* Paksa kontainer flex monitor berubah menjadi block cetak datar */
+    .nota-page-wrapper {
+        display: block !important;
+        min-height: 0 !important;
+        height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .main-content {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Aturan Struk Kasir Terkompresi (Menghilangkan Potong Halaman) */
+    #struk-cetak {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 5mm !important;
+        /* Margin dalam struk kasir sangat efisien */
+        margin: 0 auto !important;
+        width: 80mm !important;
+        /* Lebar standar kertas thermal printer kasir */
+        max-width: 100% !important;
+        font-size: 11px !important;
+        /* Ukuran font ringkas */
+        page-break-inside: avoid !important;
+        /* Mencegah patah halaman di tengah jalan */
+    }
+
+    /* Kompresi vertikal bagian-bagian dalam struk */
+    .nota-header {
+        padding-bottom: 0.5rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .nota-header h2 {
+        font-size: 1.25rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+
+    .nota-info {
+        font-size: 0.75rem !important;
+        padding-bottom: 0.4rem !important;
+        margin-bottom: 0.5rem !important;
+        gap: 0.3rem !important;
+    }
+
+    .nota-items {
+        padding-bottom: 0.4rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .nota-items p {
+        margin-bottom: 0.5rem !important;
+    }
+
+    .nota-item-row {
+        font-size: 0.8rem !important;
+        gap: 0.25rem !important;
+    }
+
+    .nota-totals {
+        font-size: 0.8rem !important;
+        margin-bottom: 0.75rem !important;
+        gap: 0.4rem !important;
+    }
+
+    .nota-footer {
+        padding-top: 0.5rem !important;
+        font-size: 0.75rem !important;
+    }
+}
+
+@page {
+    margin: 0;
+    /* Menghilangkan header & footer otomatis browser (Judul situs & URL URL) */
+}
+
+@media print {
+
+    /* Memberikan ruang aman di tepi kertas fisik agar tidak terpotong printer */
+    body {
+        padding: 15mm 20mm !important;
+        background-color: #ffffff !important;
+    }
+
+    /* Sembunyikan metrik ringkasan di atas */
+    .metrics-grid {
+        display: none !important;
+    }
+
+    /* Sembunyikan kolom kanan (Produk Best Seller) */
+    .best-seller-card {
+        display: none !important;
+    }
+
+    /* Ubah kontainer menjadi block satu kolom penuh agar tabel kiri melebar maksimal */
+    .kasir-container {
+        display: block !important;
+        width: 100% !important;
+    }
+
+    /* Hilangkan bayangan card & kurangi border untuk hasil cetak minimalis */
+    .card {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin-bottom: 2rem !important;
+    }
+}
